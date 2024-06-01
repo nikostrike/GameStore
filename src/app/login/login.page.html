@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="titulo">
+    <p>GameStore</p>
+  </div>
+  <div class="subtitulo">
+    <p>La Store Digital 👾</p>
+  </div>
+
+  <h1 style="text-align: center;" >Bienvenido!</h1>
+  <div class="login">    
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input formControlName="username" type="text" required></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)">
+      <ion-text color="danger">
+        <p *ngIf="loginForm.get('username')?.errors?.['required']">El usuario es requerido.</p>
+        <p *ngIf="loginForm.get('username')?.errors?.['minlength']">Mínimo 3 caracteres.</p>
+        <p *ngIf="loginForm.get('username')?.errors?.['maxlength']">Máximo 8 caracteres.</p>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password" required></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+      <ion-text color="danger">
+        <p *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es requerida.</p>
+        <p *ngIf="loginForm.get('password')?.errors?.['minlength']">Debe tener 4 dígitos.</p>
+        <p *ngIf="loginForm.get('password')?.errors?.['maxlength']">Debe tener 4 dígitos.</p>
+        <p *ngIf="loginForm.get('password')?.errors?.['pattern']">La contraseña debe ser numérica.</p>
+      </ion-text>
+    </div>
+
+    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
+    
+  </form>
+  <a href="">Crea tu cuenta gratis</a>
+</div>
+
+</ion-content>

@@ -8,8 +8,36 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'deportes',
+    loadChildren: () => import('./categorias/deportes/deportes.module').then( m => m.DeportesPageModule)
+  },
+  {
+    path: 'rpg',
+    loadChildren: () => import('./categorias/rpg/rpg.module').then( m => m.RPGPageModule)
+  },
+  {
+    path: 'disparos',
+    loadChildren: () => import('./categorias/disparos/disparos.module').then( m => m.DisparosPageModule)
+  },
+  {
+    path: 'aventura',
+    loadChildren: () => import('./categorias/aventura/aventura.module').then( m => m.AventuraPageModule)
+  },
+  {
+    path: 'carreras',
+    loadChildren: () => import('./categorias/carreras/carreras.module').then( m => m.CarrerasPageModule)
+  },
+  {
+    path: 'arcade',
+    loadChildren: () => import('./categorias/arcade/arcade.module').then( m => m.ArcadePageModule)
   },
 ];
 

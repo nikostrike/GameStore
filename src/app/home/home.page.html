@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      HOME
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,93 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">HOME</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="titulo">
+    <h1>GameStore</h1>
+    <p>La Store Digital 👾</p>
   </div>
+
+  <div class="bienvenido">
+    <h1>Bienvenido, {{username}}!</h1>
+  </div>
+
+  <div class="categorias">    
+    <h1>Elíge tu categoría favorita para comenzar!</h1>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card (click)="navigateToCategory('deportes')">
+          <ion-card-header>
+            <ion-card-title>Deportes</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="game-controller" slot="start"></ion-icon>
+            <p>Los mejores juegos de deportes</p>
+          </ion-card-content>
+        </ion-card>
+      
+      </ion-col>      
+      <ion-col size="6">
+        <ion-card (click)="navigateToCategory('RPG')">
+          <ion-card-header>
+            <ion-card-title>RPG</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="game-controller" slot="start"></ion-icon>
+            <p>Los mejores juegos de rol</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      
+      <ion-col size="6">
+        <ion-card (click)="navigateToCategory('Disparos')">
+          <ion-card-header>
+            <ion-card-title>Disparos</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="game-controller" slot="start"></ion-icon>
+            <p>Los mejores juegos de disparos</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>  
+      
+      <ion-col size="6">
+        <ion-card (click)="navigateToCategory('Aventura')">
+          <ion-card-header>
+            <ion-card-title>Aventura</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="game-controller" slot="start"></ion-icon>
+            <p>Los mejores juegos de aventura</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      
+      <ion-col size="6">
+        <ion-card (click)="navigateToCategory('Carreras')">
+          <ion-card-header>
+            <ion-card-title>Carreras</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="game-controller" slot="start"></ion-icon>
+            <p>Los mejores juegos de carreras</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      
+      <ion-col size="6">
+        <ion-card (click)="navigateToCategory('Arcade')">
+          <ion-card-header>
+            <ion-card-title>Arcade</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-icon name="game-controller" slot="start"></ion-icon>
+            <p>Los mejores juegos de arcade</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>      
+    </ion-row>
+  </div>  
 </ion-content>
