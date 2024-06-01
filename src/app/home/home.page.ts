@@ -16,8 +16,8 @@ export class HomePage implements OnInit {
     this.username = localStorage.getItem('username');
   }
 
-  navigateToCategoty(category: string) {
-    this.router.navigate(['/category/', category]);
+  navigateToCategory(category: string) {
+    this.router.navigate([`/categorias/${category.toLowerCase()}`]);
   }
 
 }
