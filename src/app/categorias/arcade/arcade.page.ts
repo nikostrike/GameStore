@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-arcade',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArcadePage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit() {
   }

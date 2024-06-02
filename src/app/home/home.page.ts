@@ -12,6 +12,14 @@ export class HomePage implements OnInit {
 
   constructor(private router: Router) {}
 
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
+
   ngOnInit() {
     this.username = localStorage.getItem('username');
   }

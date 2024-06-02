@@ -1,13 +1,72 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>carreras</ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="navigateToHome()">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="navigateToLogin()">
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title style="text-align: center;">GameStore👾</ion-title>
+</ion-toolbar>
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">carreras</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Categoría</ion-card-subtitle>
+        <ion-card-title>Carreras</ion-card-title>        
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-card class="game">            
+            <img class="category-image" alt="" src="https://store-images.s-microsoft.com/image/apps.41214.13884136572674855.9821a5c1-261e-47de-8049-2e1d49f16eda.e86686c7-b40a-4114-807c-645a6ae41a16" />
+            <ion-card-title>Forza Horizon 5</ion-card-title>
+            <ion-card-subtitle>$32.990</ion-card-subtitle>
+              <div class="boton-compra">
+                <ion-button color="success">Comprar</ion-button>
+                <ion-button>Favoritos<ion-icon slot="end" name="heart"></ion-icon></ion-button>
+              </div>
+          </ion-card>
+    
+          <ion-card class="game">            
+            <img class="category-image" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfhKRyC219mZdEfSy6UrCJHqh-8Si56CZFlg&s" />
+            <ion-card-title>Forza Motorsport 7</ion-card-title>
+            <ion-card-subtitle>$28.990</ion-card-subtitle>
+              <div class="boton-compra">
+                <ion-button color="success">Comprar</ion-button>
+                <ion-button>Favoritos<ion-icon slot="end" name="heart"></ion-icon></ion-button>
+              </div>
+          </ion-card>
+    
+          <ion-card class="game">            
+            <img class="category-image" alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlvZgVJgpXAPtyM4q1FW4xcBNME523wgZdRw&s" />
+            <ion-card-title>Dirt 5</ion-card-title>
+            <ion-card-subtitle>$15.990</ion-card-subtitle>
+              <div class="boton-compra">
+                <ion-button color="success">Comprar</ion-button>
+                <ion-button>Favoritos<ion-icon slot="end" name="heart"></ion-icon></ion-button>
+              </div>
+          </ion-card>
+    
+          <ion-card class="game">            
+            <img class="category-image" alt="" src="https://cdn-7.motorsport.com/images/amp/Y9984G7Y/s6/f1-24-game.jpg" />
+            <ion-card-title>F1 24</ion-card-title>
+            <ion-card-subtitle>$22.990</ion-card-subtitle>
+              <div class="boton-compra">
+                <ion-button color="success">Comprar</ion-button>
+                <ion-button>Favoritos<ion-icon slot="end" name="heart"></ion-icon></ion-button>
+              </div>
+          </ion-card>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
 </ion-content>
