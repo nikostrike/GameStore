@@ -32,4 +32,19 @@ ion-item {
     height: 100%;
     object-fit: fill;
   }
+
+  ion-card {
+    color: WHITE;
+    opacity: 1;
+    background: white;
+    margin: 10px;
+  
+    --background: white;
+  }
+  
+  @media (prefers-color-scheme: dark ) {
+    ion-card {
+      --background: white;
+    }
+  }
   

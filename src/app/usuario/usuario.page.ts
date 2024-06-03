@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import type { QueryList } from '@angular/core';
+import type { Animation } from '@ionic/angular';
+import { AnimationController, IonCard } from '@ionic/angular';
 
 @Component({
   selector: 'app-usuario',
@@ -8,16 +11,34 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./usuario.page.scss'],
 })
 export class UsuarioPage implements OnInit {
+  @ViewChild(IonCard, { read: ElementRef }) card!: ElementRef<HTMLIonCardElement>;
+  alertButtons = ['OK'];
   userForm: FormGroup;
   username: string | null = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  private animation!: Animation;
+
+  constructor(private formBuilder: FormBuilder, private router: Router, private animationCtrl: AnimationController) {
     this.userForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],
       email: [''],
       phone: ['']
     });
+  }
+
+  ngAfterViewInit() {
+    this.animation = this.animationCtrl
+      .create()
+      .addElement(this.card.nativeElement)
+      .duration(700)
+      .iterations(1)
+      
+      .fromTo('opacity', '0.2', '1');
+  }
+
+  play() {
+    this.animation.play();
   }
 
   ngOnInit() {

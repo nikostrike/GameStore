@@ -20,8 +20,10 @@
   <div class="user">
     <h1>Hola {{ username }}!, te gustaría actualizar tus datos?</h1>
   </div>
-
+  
+  
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <ion-card class="perfil-card"> 
     <ion-list>
       <ion-item>
         <ion-textarea formControlName="firstName" label="Nombres" labelPlacement="stacked" placeholder="Enter text"></ion-textarea>
@@ -36,13 +38,20 @@
         <ion-textarea formControlName="phone" label="Teléfono" labelPlacement="stacked" placeholder="9 9999 9999"></ion-textarea>
       </ion-item>
     </ion-list>
+    </ion-card>
 
     <ion-row>
       <ion-col>
-        <ion-button expand="block" type="submit">Actualizar Datos</ion-button>
+        <ion-button id="present-alert" expand="block" type="submit">Actualizar Datos</ion-button>
+        <ion-alert
+          trigger="present-alert"
+          header="Listo!"
+          message="Datos actualizados correctamente!"
+          [buttons]="alertButtons">
+        </ion-alert>
       </ion-col>
       <ion-col>
-        <ion-button expand="block" type="button" (click)="resetForm()">Limpiar Campos</ion-button>
+        <ion-button expand="block" type="button" (click)="play()" (click)="resetForm()">Limpiar Campos</ion-button>
       </ion-col>
     </ion-row>
   </form>

@@ -27,9 +27,10 @@
     <h1>Bienvenido, {{username}}!</h1>
   </div>
 
-  <div class="categorias">
-    <h1>Aquí encontrarás tus juegos favoritos 🎮</h1>    
-    <h1>Elíge una categoría para comenzar:</h1>
+  <div class="categorias">   
+    <h1>🎮 Elíge una categoría para comenzar:</h1>
+
+    <ion-card class="content">
     <ion-row>
       <ion-col size="6">
         <ion-card color="tertiary" (click)="navigateToCategory('deportes')">
@@ -103,5 +104,8 @@
         </ion-card>
       </ion-col>      
     </ion-row>
+  </ion-card>
   </div>  
+
+  <ion-button (click)="play()" expand="block">CATEGORIAS</ion-button>
 </ion-content>
