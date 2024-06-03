@@ -16,8 +16,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  navigateToLogin() {
-    this.router.navigate(['/login']);
+  navigateToUsuario() {
+    this.router.navigate(['/usuario']);
   }
 
   ngOnInit() {

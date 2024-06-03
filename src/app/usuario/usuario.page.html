@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="navigateToHome()">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="navigateToUsuario()">
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title style="text-align: center;">Perfil</ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  <div class="user">
+    <h1>Hola {{ username }}!, te gustaría actualizar tus datos?</h1>
+  </div>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-textarea formControlName="firstName" label="Nombres" labelPlacement="stacked" placeholder="Enter text"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea formControlName="lastName" label="Apellidos" labelPlacement="stacked" placeholder="Enter text"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea formControlName="email" label="Correo" labelPlacement="stacked" placeholder="mail@example.com"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea formControlName="phone" label="Teléfono" labelPlacement="stacked" placeholder="9 9999 9999"></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" type="submit">Actualizar Datos</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" type="button" (click)="resetForm()">Limpiar Campos</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
