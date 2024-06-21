@@ -40,6 +40,10 @@ export class HomePage implements OnInit {
     this.router.navigate(['/usuario']);
   }
 
+  navigateToApiValorant() {
+    this.router.navigate(['/api-valorant']);
+  }
+
   ngOnInit() {
     this.username = localStorage.getItem('username');
   }

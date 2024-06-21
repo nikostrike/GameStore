@@ -42,7 +42,15 @@ const routes: Routes = [
   {
     path: 'usuario',
     loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
+  },  {
+    path: 'registrar',
+    loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
+  },
+  {
+    path: 'api-valorant',
+    loadChildren: () => import('./api-valorant/api-valorant.module').then( m => m.ApiValorantPageModule)
   }
+
 ];
 
 @NgModule({
