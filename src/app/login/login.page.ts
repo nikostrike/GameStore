@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { AlertController, NavController } from '@ionic/angular';
+import { DbService } from '../db.service';
+import { SessionService } from '../session.service';
+
 
 @Component({
   selector: 'app-login',
@@ -8,46 +11,54 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
-  loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.loginForm = this.formBuilder.group({
-      username: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(8),
-          Validators.pattern('^[a-zA-Z0-9]+$')
-        ]
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(4),
-          Validators.pattern('^[0-9]+$')
-        ]
-      ]
-    });
-  }
+  usuario: any="";
+  password: string=""; 
+  sesion_activa: any="";
+  mensaje: string='';
+
+  constructor(private alertController:AlertController, 
+              private router:Router,
+              private dbService: DbService,
+              private navCtrl: NavController,
+              private sessionService: SessionService
+            ) { }
 
   ngOnInit() {
-
+ 
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      if (this.loginForm.valid) {
-        const username = this.loginForm.get('username')?.value;
-        localStorage.setItem('username', username);
-        console.log('Formulario válido', this.loginForm.value);
-        this.router.navigate(['/home']);
-      } else {
-        console.log('Formulario inválido');
+  async login() {
+    const usuario = await this.dbService.validarUsuario(this.usuario, this.password);
+    if (usuario) {
+      let NavigationExtras: NavigationExtras = {
+        state:{
+          usuarioEnviado: this.usuario,
+          passwordEnviado: this.password
+        }
+
       }
+      this.sessionService.setUsuario(this.usuario); 
+      this.router.navigate(['/home'],NavigationExtras);
+    } else {
+      this.presentAlert('No existe el usuario en la base datos');
     }
   }
+   
+
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Mensaje',
+      message: message,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  navigateToRegistrar() {
+    this.router.navigate(['/registrar']);
+  }
+
+  
 }

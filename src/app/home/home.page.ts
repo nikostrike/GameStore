@@ -1,8 +1,8 @@
-import { Component, OnInit, ElementRef, ViewChildren, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +12,13 @@ import { AnimationController, IonCard } from '@ionic/angular';
 export class HomePage implements OnInit {
   @ViewChild(IonCard, { read: ElementRef }) card!: ElementRef<HTMLIonCardElement>;
 
-  username: string | null = '';
+  usuarioRecibidoPersistente: string = '';
 
   private animation!: Animation;
 
-  constructor(private router: Router, private animationCtrl: AnimationController) {}
+  constructor(private router: Router,
+              private animationCtrl: AnimationController,
+              private sessionService: SessionService) {}
 
   ngAfterViewInit() {
     this.animation = this.animationCtrl
@@ -37,7 +39,7 @@ export class HomePage implements OnInit {
   }
 
   navigateToUsuario() {
-    this.router.navigate(['/usuario']);
+    this.router.navigate(['/login']);
   }
 
   navigateToApiValorant() {
@@ -45,7 +47,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.username = localStorage.getItem('username');
+    this.usuarioRecibidoPersistente = this.sessionService.getUsuario();
   }
 
   navigateToCategory(category: string) {

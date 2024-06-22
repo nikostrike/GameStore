@@ -15,7 +15,7 @@ export class AventuraPage implements OnInit {
   }
 
   navigateToUsuario() {
-    this.router.navigate(['/usuario']);
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {

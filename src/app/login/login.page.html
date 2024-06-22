@@ -5,43 +5,29 @@
 </ion-header>
 
 <ion-content>
+  
   <div class="titulo">
     <h1>GameStore</h1>
     <p>La Store Digital 👾</p>
   </div>
 
   <h1 style="text-align: center;" >Inicie sesión para comenzar la aventura!</h1>
-  <div class="login">    
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input formControlName="username" type="text" required></ion-input>
-    </ion-item>
-    <div *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)">
-      <ion-text color="danger">
-        <p *ngIf="loginForm.get('username')?.errors?.['required']">El usuario es requerido.</p>
-        <p *ngIf="loginForm.get('username')?.errors?.['minlength']">Mínimo 3 caracteres.</p>
-        <p *ngIf="loginForm.get('username')?.errors?.['maxlength']">Máximo 8 caracteres.</p>
-      </ion-text>
-    </div>
 
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input formControlName="password" type="password" required></ion-input>
-    </ion-item>
-    <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
-      <ion-text color="danger">
-        <p *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es requerida.</p>
-        <p *ngIf="loginForm.get('password')?.errors?.['minlength']">Debe tener 4 dígitos.</p>
-        <p *ngIf="loginForm.get('password')?.errors?.['maxlength']">Debe tener 4 dígitos.</p>
-        <p *ngIf="loginForm.get('password')?.errors?.['pattern']">La contraseña debe ser numérica.</p>
-      </ion-text>
-    </div>
-
-    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
+    <div class="login">    
     
-  </form>
-  <a href="">Crea tu cuenta gratis</a>
-</div>
+     <ion-item>
+       <ion-label position="floating">Usuario</ion-label>
+       <ion-input type="text" maxlength="8" minlength="3" [(ngModel)]="usuario" required></ion-input>
+     </ion-item>
+     
+     <ion-item>
+       <ion-label position="floating">Password</ion-label>
+       <ion-input type="Password" maxlength="4" [(ngModel)]="password" required></ion-input>
+     </ion-item>
+      
+     <ion-button expand="block" (click)="login()">Ingresar</ion-button>
+     <ion-button expand="full" (click)="navigateToRegistrar()">Registrarse</ion-button>
+    
+    </div>
 
 </ion-content>

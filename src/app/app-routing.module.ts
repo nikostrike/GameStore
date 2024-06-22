@@ -40,9 +40,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'usuario',
-    loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
-  },  {
     path: 'registrar',
     loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
   },
