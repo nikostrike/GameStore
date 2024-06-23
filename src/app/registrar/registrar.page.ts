@@ -74,7 +74,7 @@ export class RegistrarPage implements OnInit {
     this.dbService.insertUsuario(this.usuario, this.nombre, this.apellido, this.email, this.telefono, this.password)
       .then(() => {
         this.presentAlert('Datos guardados exitosamente');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/login']);
         
       })
       .catch(error => {

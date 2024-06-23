@@ -24,10 +24,10 @@ export class HomePage implements OnInit {
     this.animation = this.animationCtrl
       .create()
       .addElement(this.card.nativeElement)
-      .duration(150)
-      .iterations(11)
+      .duration(100)
+      .iterations(7)
       .direction('alternate')
-      .fromTo('background', 'RED', 'background');
+      .fromTo('background-color', 'GREEN', 'background-color');
   }
 
   play() {
@@ -44,6 +44,10 @@ export class HomePage implements OnInit {
 
   navigateToApiValorant() {
     this.router.navigate(['/api-valorant']);
+  }
+
+  navigateToMaps() {
+    this.router.navigate(['/maps']);
   }
 
   ngOnInit() {

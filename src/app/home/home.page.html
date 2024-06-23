@@ -1,22 +1,24 @@
-<ion-header [translucent]="true">
-
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="navigateToHome()">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToUsuario()">
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">HOME</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-button (click)="navigateToHome()">
-      <ion-icon slot="icon-only" name="home"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  <ion-buttons slot="end">
-    <ion-button (click)="navigateToUsuario()">
-      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  <ion-title style="text-align: center;">HOME</ion-title>
-</ion-toolbar>
+<ion-content [fullscreen]="false">
 
-<ion-content [fullscreen]="true">
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
   
   <div class="titulo">
     <h1>GameStore</h1>
@@ -27,12 +29,11 @@
     <h1>Bienvenido, {{ usuarioRecibidoPersistente }}!</h1>
   </div>
 
-  <ion-button (click)="navigateToApiValorant()" expand="block">Ir a API Valorant</ion-button>
+  <div class="categorias">       
 
-  <div class="categorias">   
-    <h1>🎮 Elíge una categoría para comenzar:</h1>
-
-    <ion-card class="content">
+    <ion-card class="content2">
+      <h1>🎮 Elíge una categoría para comenzar:</h1>
+      <ion-button class="catButton" (click)="play()" expand="block">CATEGORIAS</ion-button>
     <ion-row>
       <ion-col size="6">
         <ion-card color="tertiary" (click)="navigateToCategory('deportes')">
@@ -53,7 +54,7 @@
             <ion-card-title>RPG</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <p>Los mejores juegos de rol</p>
+            <p>Los mejores juegos de Rol y RPG</p>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -109,5 +110,25 @@
   </ion-card>
   </div>  
 
-  <ion-button (click)="play()" expand="block">CATEGORIAS</ion-button>
+  
+
+  <div class="apiButton">
+    <p>Te gustaría conocer todo acerca de los Agentes de Valorant?</p>
+    <ion-button (click)="navigateToApiValorant()" color="dark">Agentes de Valorant</ion-button>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="maps">
+      <ion-title size="large">Ubicanos aquí 📍</ion-title>
+      <ion-button (click)="navigateToMaps()" size="small">
+        Nuestra tienda
+        <ion-icon slot="end" name="map-outline"></ion-icon>
+      </ion-button>
+      </div>
+  </ion-toolbar>
+</ion-footer>
+
+
+

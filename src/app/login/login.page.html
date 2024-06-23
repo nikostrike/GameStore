@@ -5,29 +5,35 @@
 </ion-header>
 
 <ion-content>
+
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
   
-  <div class="titulo">
-    <h1>GameStore</h1>
-    <p>La Store Digital 👾</p>
+  <div class="content">
+    <div class="titulo">
+      <h1>GameStore</h1>
+      <p>La Store Digital 👾</p>
+    </div>
+
+    <h1 style="text-align: center;" >Inicie sesión para comenzar la aventura!</h1>
+
+
+        <div class="login">    
+          <ion-item>
+            <ion-label position="floating">Usuario</ion-label>
+            <ion-input type="text" maxlength="8" minlength="3" [(ngModel)]="usuario" required></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="Password" maxlength="4" [(ngModel)]="password" required></ion-input>
+          </ion-item>
+            
+          <ion-button expand="block" (click)="login()">Ingresar</ion-button>
+          <ion-button expand="full" (click)="navigateToRegistrar()">Registrarse</ion-button>    
+        </div>
   </div>
 
-  <h1 style="text-align: center;" >Inicie sesión para comenzar la aventura!</h1>
-
-    <div class="login">    
-    
-     <ion-item>
-       <ion-label position="floating">Usuario</ion-label>
-       <ion-input type="text" maxlength="8" minlength="3" [(ngModel)]="usuario" required></ion-input>
-     </ion-item>
-     
-     <ion-item>
-       <ion-label position="floating">Password</ion-label>
-       <ion-input type="Password" maxlength="4" [(ngModel)]="password" required></ion-input>
-     </ion-item>
-      
-     <ion-button expand="block" (click)="login()">Ingresar</ion-button>
-     <ion-button expand="full" (click)="navigateToRegistrar()">Registrarse</ion-button>
-    
-    </div>
 
 </ion-content>

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="navigateToHome()">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button (click)="navigateToUsuario()">
+      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title style="text-align: center;">MAPS</ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+
+ <ion-title size="large">Ubicanos aquí 📍</ion-title>
+
+ <div #mapContainer id="mapContainer"></div>
+ 
+</ion-content>

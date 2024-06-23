@@ -46,7 +46,11 @@ const routes: Routes = [
   {
     path: 'api-valorant',
     loadChildren: () => import('./api-valorant/api-valorant.module').then( m => m.ApiValorantPageModule)
+  },  {
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
   }
+
 
 ];
 
