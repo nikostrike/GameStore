@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx'; // importar en app.modules.ts
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
@@ -25,7 +25,7 @@ export class DbService {
       this.isDBReady.next(true); 
       this.db = db;
       this.createTables();
-      this.isDBReady.next(true); // Emitimos true cuando la base de datos esté lista
+      this.isDBReady.next(true);
       this.presentToast('Base de datos y tabla creadas con éxito'); 
     }).catch(error => this.presentToast('Error al insertar usuario:'+ error));
   }
