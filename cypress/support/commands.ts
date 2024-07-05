@@ -41,6 +41,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-// cypress/support/e2e.ts
-
-import './commands';
