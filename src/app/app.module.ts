@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import { DbService } from './db.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
             AppRoutingModule,
             HttpClientModule],
   providers: [{ provide: RouteReuseStrategy,
-                useClass: IonicRouteStrategy }, SQLite],
+                useClass: IonicRouteStrategy }, SQLite, DbService ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
